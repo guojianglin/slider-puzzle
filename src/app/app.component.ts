@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'slider-puzzle';
+
+  getTheResult(result) {
+    console.log('result================', result);
+  }
 }
