@@ -49,7 +49,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/jigsaw.min.js"
+            ]
           },
           "configurations": {
             "production": {
