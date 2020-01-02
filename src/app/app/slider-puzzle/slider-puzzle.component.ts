@@ -10,7 +10,7 @@ export class SliderPuzzleComponent implements OnInit {
   @ViewChild('container', {static: true}) container: ElementRef;
   @Input() width = 310;
   @Input() height = 155;
-  @Output() sliderResult = new EventEmitter();
+  @Output() sliderResult: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class SliderPuzzleComponent implements OnInit {
       height: this.height, // 可选, 默认155
       onSuccess: this.handleSuccess,
       onFail: this.handleFail,
-      onRefresh: this.handleRefresh
+      onRefresh: () => {}
     });
   }
 
@@ -36,16 +36,17 @@ export class SliderPuzzleComponent implements OnInit {
   //   });
   // }
 
-  handleSuccess() {
+  handleSuccess = () => {
     this.sliderResult.emit(true);
+    // console.log('this===========', this);
   }
 
-  handleFail() {
+  handleFail = () => {
     this.sliderResult.emit(false);
   }
 
-  handleRefresh() {
-    this.sliderResult.emit('wait for a min');
-  }
+  // handleRefresh() {
+  //   this.sliderResult.emit('wait for a min');
+  // }
 
 }
